@@ -2,11 +2,15 @@
 	"compilerOptions": {
 		"outDir": "./dist/out-tsc",
 		"sourceMap": true,
-		"module": "es6",
+		"module": "esnext",
 		"target": "es6",
 		"allowJs": true,
+		"allowSyntheticDefaultImports": true,
 		"baseUrl": "./sandbox",
-		"lib": ["es6", "dom"],
-		"types": ["node"]
+		"lib": ["esnext", "dom"],
+		"types": ["node"],
+		"moduleResolution": "node",
+		"strict": true,
+		"jsx": "react"
 	}
 }
