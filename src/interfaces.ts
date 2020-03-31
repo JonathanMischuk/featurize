@@ -4,17 +4,25 @@ export interface FiltersInterface {
 }
 
 export interface FeatureInterface {
-	name: string;
+	component: () => any;
+	versions: { [key: string]: string };
 	sections: string[];
 	filters: { [key: string]: string[] };
 	data?: { [key: string]: any };
 }
 
-export interface FeatureSystemInterface {
+export interface FilterFeaturesInterface {
 	features: FeatureInterface[];
 	filters: FiltersInterface;
 }
 
-export interface FeatureSystemProviderInterface extends FeatureSystemInterface {
+export interface FeatureSystemInterface {
+	features: FeatureInterface[];
+	filters: FiltersInterface;
+	env: string;
+}
+
+export interface FeatureSystemProviderInterface {
+	instance: any;
 	children: any;
 }

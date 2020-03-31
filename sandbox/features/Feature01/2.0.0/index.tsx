@@ -9,5 +9,5 @@ const style = {
 };
 
 export default (props: any) => {
-	return <div style={style}>Feature 01 Version 1.0.0</div>;
+	return <div style={style}>Feature 01 Version 2.0.0</div>;
 };

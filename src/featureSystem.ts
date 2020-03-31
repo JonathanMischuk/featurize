@@ -3,23 +3,49 @@ import {
 	FiltersInterface,
 	FeatureInterface
 } from './interfaces';
+
 import { filterFeatures } from './utils/filterFeatures';
+import { emitter } from './emitter';
 
 class FeatureSystem {
 	features: FeatureInterface[];
 	filters: FiltersInterface;
+	env: string;
 
-	constructor(features: FeatureInterface[], filters: FiltersInterface) {
+	constructor(
+		features: FeatureInterface[],
+		filters: FiltersInterface,
+		env: string
+	) {
 		this.features = features;
 		this.filters = filters;
+		this.env = env;
 	}
 
-	setFilterState(filter: string, filterState: string): void {}
+	init(filters: FiltersInterface) {}
 
-	removeFeatureState(filter: string, filterState: string): void {}
+	setFilterState(filter: string, state: string): void {
+		this.filters.states[filter] = !this.filters.states[filter].includes(
+			state
+		)
+			? [...this.filters.states[filter], state]
+			: [...this.filters.states[filter]];
 
-	getFilterState(filterState: string): string[] {
-		return [];
+		emitter.emit('update');
+	}
+
+	removeFilterState(filter: string, state: string): void {
+		this.filters.states[filter] = this.filters.states[filter].filter(
+			(filterItem: any) => {
+				return filterItem !== state;
+			}
+		);
+
+		emitter.emit('update');
+	}
+
+	getFilterState(filter: string): string[] {
+		return this.filters.states[filter];
 	}
 
 	getFeatures(section: string): FeatureInterface[] {
@@ -27,16 +53,14 @@ class FeatureSystem {
 			return feature.sections.includes(section);
 		});
 
-		return filterFeatures({
-			features: featuresForSection,
-			filters: this.filters
-		});
+		return filterFeatures(featuresForSection, this.filters.states);
 	}
 }
 
 export const featureSystem = ({
 	features,
-	filters
+	filters,
+	env
 }: FeatureSystemInterface) => {
-	return new FeatureSystem(features, filters);
+	return new FeatureSystem(features, filters, env);
 };

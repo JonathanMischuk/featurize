@@ -1,38 +1,36 @@
 import React from 'react';
 import { render } from 'react-dom';
 
+import { useFeatures } from '../src/react/hooks';
+import { instance } from './featureSystemConfig';
 import { FeatureSystemProvider } from '../src/react/FeatureSystemProvider';
-import { useFeatures } from '../src/react/hooks/useFeatures';
-import features from './features';
-
-const filters = {
-	options: {
-		roles: [
-			'Full Demo',
-			'Admin',
-			'Executive',
-			'Org Manager',
-			'Account Category Manager',
-			'Product Category Manager',
-			'Advisor',
-			'Advisor Less Compensation'
-		],
-		permissions: ['level1', 'level2', 'level3']
-	},
-	states: {
-		roles: ['Admin'],
-		permissions: ['level3']
-	}
-};
+import Features from '../src/react/Features';
 
 const App = (props: any) => {
-	const components = useFeatures('flubber');
+	const features = useFeatures('hello');
 
-	return <div>{components}</div>;
+	const onClickRemove = () => {
+		// instance.removeFilterState('roles', 'Admin');
+	};
+
+	const onClickAdd = () => {
+		// instance.setFilterState('roles', 'Admin');
+	};
+
+	return (
+		<>
+			{features}
+			<Features section="flubber" />
+			<Features section="anotherSection" />
+
+			<button onClick={onClickRemove}>Remove Feature State</button>
+			<button onClick={onClickAdd}>Add Feature State</button>
+		</>
+	);
 };
 
 render(
-	<FeatureSystemProvider features={features} filters={filters}>
+	<FeatureSystemProvider instance={instance}>
 		<App />
 	</FeatureSystemProvider>,
 	document.getElementById('root')

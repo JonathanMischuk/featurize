@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react';
 import Loadable from 'react-loadable';
 
-import { emitter } from '../../emitter';
-import { FeatureSystemContext } from '../Context';
+import { emitter } from '../emitter';
+import { FeatureSystemContext } from './Context';
 
 const Loading = (props: any) => <div>Loading...</div>;
 
-export const useFeatures = (section: string) => {
+export default ({ section }: any) => {
 	const { instance } = useContext(FeatureSystemContext);
 	const { env } = instance;
 	const features = instance.getFeatures(section);
@@ -23,7 +23,11 @@ export const useFeatures = (section: string) => {
 		setTriggerRender(Date.now);
 	});
 
-	return components.map((Component: any, i: number) => {
-		return <Component key={i} />;
-	});
+	return (
+		<>
+			{components.map((Component: any, i: number) => {
+				return <Component key={i} />;
+			})}
+		</>
+	);
 };
