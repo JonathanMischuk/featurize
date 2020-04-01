@@ -1,14 +1,13 @@
 {
 	"name": "react-featurize",
-	"version": "0.1.0",
-	"private": true,
+	"version": "0.1.2",
 	"description": "A tool to featurize UI components without spaghetti logic in React",
 	"main": "index.js",
 	"keywords": [
 		"feature",
-		"system",
-		"feature-system",
-		"react"
+		"featurize",
+		"react",
+		"react-featurize"
 	],
 	"repository": {
 		"type": "git",
