@@ -19,5 +19,8 @@
 	"bugs": {
 		"url": "https://github.com/JonathanMischuk/feature-system/issues"
 	},
-	"homepage": "https://github.com/JonathanMischuk/feature-system#readme"
+	"homepage": "https://github.com/JonathanMischuk/feature-system#readme",
+	"devDependencies": {
+		"@types/node": "^13.9.3"
+	}
 }

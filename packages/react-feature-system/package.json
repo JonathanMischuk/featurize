@@ -1,6 +1,7 @@
 {
 	"name": "react-featurize",
 	"version": "0.1.0",
+	"private": true,
 	"description": "A tool to featurize UI components without spaghetti logic in React",
 	"main": "index.js",
 	"keywords": [
@@ -20,10 +21,16 @@
 	},
 	"homepage": "https://github.com/JonathanMischuk/feature-system#readme",
 	"dependencies": {
-		"@loadable/component": "^5.12.0",
 		"events": "^3.1.0",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
 		"react-loadable": "^5.5.0"
+	},
+	"devDependencies": {
+		"@types/events": "^3.0.0",
+		"@types/node": "^13.9.3",
+		"@types/react": "^16.9.27",
+		"@types/react-dom": "^16.9.5",
+		"@types/react-loadable": "^5.5.3"
 	}
 }
