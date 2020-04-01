@@ -21,8 +21,3 @@ export interface FeatureSystemInterface {
 	filters: FiltersInterface;
 	env: string;
 }
-
-export interface FeatureSystemProviderInterface {
-	instance: any;
-	children: any;
-}

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import { FeatureSystemContext } from '../Context';
+import { FeatureSystemContext } from '../components';
 
 export const useRemoveFilterState = () => {
 	const { instance } = useContext(FeatureSystemContext);

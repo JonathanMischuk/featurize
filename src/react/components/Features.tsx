@@ -1,10 +1,10 @@
-import { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 
 import { createFeatureComponents, prepareFeatureComponents } from '../utils';
 import { emitter } from '../../emitter';
-import { FeatureSystemContext } from '../components';
+import { FeatureSystemContext } from './FeatureSystemContext';
 
-export const useFeatures = (section: string, props: any = {}) => {
+export default ({ section, ...props }: any) => {
 	const { instance } = useContext(FeatureSystemContext);
 	const { env } = instance;
 	const features = instance.getFeatures(section);
@@ -20,5 +20,5 @@ export const useFeatures = (section: string, props: any = {}) => {
 		};
 	}, []);
 
-	return createFeatureComponents(components, props);
+	return <>{createFeatureComponents(components, props)}</>;
 };

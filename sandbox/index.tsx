@@ -8,11 +8,14 @@ import {
 } from '../src/react/hooks';
 
 import { instance } from './featureSystemConfig';
-import { FeatureSystemProvider } from '../src/react/FeatureSystemProvider';
-import Features from '../src/react/Features';
+import { FeatureSystemProvider, Features } from '../src/react/components';
 
-const App = (props: any) => {
-	const features = useFeatures('hello');
+const App = () => {
+	const features = useFeatures('hello', {
+		props03: 'props03',
+		props04: 'props04'
+	});
+
 	const removeFilterState = useRemoveFilterState();
 	const setFilterState = useSetFilterState();
 
@@ -27,7 +30,7 @@ const App = (props: any) => {
 	return (
 		<>
 			{features}
-			<Features section="flubber" />
+			<Features section="flubber" prop01="prop01" prop02="prop02" />
 			<Features section="anotherSection" />
 
 			<button onClick={onClickRemove}>Remove Feature State</button>

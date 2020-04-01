@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { FeatureSystemProviderInterface } from '../interfaces';
-import { FeatureSystemContext } from './Context';
+import { FeatureSystemContext } from './FeatureSystemContext';
 
 const renderJSX = (instance: any, children: any) => {
 	const contextValue = { instance };
