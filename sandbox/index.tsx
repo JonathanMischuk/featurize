@@ -7,7 +7,7 @@ import {
 	useAddFilterState,
 	FeatureSystemProvider,
 	Features
-} from '../packages/react-feature-system';
+} from '../packages/react-featurize';
 
 import { instance } from './featureSystemConfig';
 
