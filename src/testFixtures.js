@@ -3,28 +3,28 @@ exports.features = [
 		component: () => {},
 		versions: {},
 		sections: ['section01'],
-		filters: { options: {}, states: {} },
+		filters: { options: {}, state: {} },
 		data: {}
 	},
 	{
 		component: () => {},
 		versions: {},
 		sections: ['section02'],
-		filters: { options: {}, states: {} },
+		filters: { options: {}, state: {} },
 		data: {}
 	},
 	{
 		component: () => {},
 		versions: {},
 		sections: ['section03'],
-		filters: { options: {}, states: {} },
+		filters: { options: {}, state: {} },
 		data: {}
 	},
 	{
 		component: () => {},
 		versions: {},
 		sections: ['section03', 'section04'],
-		filters: { options: {}, states: {} },
+		filters: { options: {}, state: {} },
 		data: {}
 	}
 ];
@@ -43,7 +43,7 @@ exports.filters = {
 		],
 		permissions: ['level1', 'level2', 'level3']
 	},
-	states: {
+	state: {
 		roles: ['Admin'],
 		permissions: ['level3']
 	}

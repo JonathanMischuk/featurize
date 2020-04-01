@@ -28,8 +28,8 @@ describe('Unit tests for featureSystem.ts', () => {
 			expect(instance.getFeatures).toBeDefined();
 			expect(typeof instance.getFeatures).toBe('function');
 
-			expect(instance.setFilterState).toBeDefined();
-			expect(typeof instance.setFilterState).toBe('function');
+			expect(instance.addFilterState).toBeDefined();
+			expect(typeof instance.addFilterState).toBe('function');
 
 			expect(instance.removeFilterState).toBeDefined();
 			expect(typeof instance.removeFilterState).toBe('function');
@@ -56,24 +56,24 @@ describe('Unit tests for featureSystem.ts', () => {
 			expect(instance.getFeatures('section04')).toEqual([features[3]]);
 		});
 
-		it('setFilterState', () => {
+		it('addFilterState', () => {
 			const instance = featureSystem({
 				features,
 				filters,
 				env: DEV
 			});
 
-			instance.setFilterState('roles', 'Admin');
-			expect(instance.filters.states.roles).toEqual(['Admin']);
+			instance.addFilterState('roles', 'Admin');
+			expect(instance.filters.state.roles).toEqual(['Admin']);
 
-			instance.setFilterState('roles', 'Full Demo');
-			expect(instance.filters.states.roles).toEqual([
+			instance.addFilterState('roles', 'Full Demo');
+			expect(instance.filters.state.roles).toEqual([
 				'Admin',
 				'Full Demo'
 			]);
 
-			instance.setFilterState('roles', 'Executive');
-			expect(instance.filters.states.roles).toEqual([
+			instance.addFilterState('roles', 'Executive');
+			expect(instance.filters.state.roles).toEqual([
 				'Admin',
 				'Full Demo',
 				'Executive'
@@ -88,13 +88,13 @@ describe('Unit tests for featureSystem.ts', () => {
 			});
 
 			instance.removeFilterState('roles', 'Admin');
-			expect(instance.filters.states.roles).toEqual([]);
+			expect(instance.filters.state.roles).toEqual([]);
 
 			instance.removeFilterState('roles', 'Admin');
-			expect(instance.filters.states.roles).toEqual([]);
+			expect(instance.filters.state.roles).toEqual([]);
 
 			instance.removeFilterState('roles', 'Admin');
-			expect(instance.filters.states.roles).toEqual([]);
+			expect(instance.filters.state.roles).toEqual([]);
 		});
 
 		it('getFilterState', () => {

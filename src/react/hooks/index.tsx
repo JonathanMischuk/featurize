@@ -1,4 +1,4 @@
 export { useFeatures } from './useFeatures';
 export { useRemoveFilterState } from './useRemoveFilterState';
-export { useSetFilterState } from './useSetFilterState';
+export { useAddFilterState } from './useAddFilterState';
 export { useGetFilterState } from './useGetFilterState';

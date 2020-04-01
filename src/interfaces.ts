@@ -1,6 +1,6 @@
 export interface FiltersInterface {
 	options: { [key: string]: string[] };
-	states: { [key: string]: string[] };
+	state: { [key: string]: string[] };
 }
 
 export interface FeatureInterface {

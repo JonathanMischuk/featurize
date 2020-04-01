@@ -4,7 +4,7 @@ import { render } from 'react-dom';
 import {
 	useFeatures,
 	useRemoveFilterState,
-	useSetFilterState
+	useAddFilterState
 } from '../src/react/hooks';
 
 import { instance } from './featureSystemConfig';
@@ -17,14 +17,14 @@ const App = () => {
 	});
 
 	const removeFilterState = useRemoveFilterState();
-	const setFilterState = useSetFilterState();
+	const addFilterState = useAddFilterState();
 
 	const onClickRemove = () => {
 		removeFilterState('roles', 'Admin');
 	};
 
 	const onClickAdd = () => {
-		setFilterState('roles', 'Admin');
+		addFilterState('roles', 'Admin');
 	};
 
 	return (

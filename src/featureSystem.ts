@@ -22,18 +22,16 @@ export class FeatureSystem {
 		this.env = env;
 	}
 
-	setFilterState(filter: string, state: string): void {
-		this.filters.states[filter] = !this.filters.states[filter].includes(
-			state
-		)
-			? [...this.filters.states[filter], state]
-			: [...this.filters.states[filter]];
+	addFilterState(filter: string, state: string): void {
+		this.filters.state[filter] = !this.filters.state[filter].includes(state)
+			? [...this.filters.state[filter], state]
+			: [...this.filters.state[filter]];
 
 		emitter.emit('update');
 	}
 
 	removeFilterState(filter: string, state: string): void {
-		this.filters.states[filter] = this.filters.states[filter].filter(
+		this.filters.state[filter] = this.filters.state[filter].filter(
 			(filterItem: any) => {
 				return filterItem !== state;
 			}
@@ -43,7 +41,7 @@ export class FeatureSystem {
 	}
 
 	getFilterState(filter: string): string[] {
-		return this.filters.states[filter];
+		return this.filters.state[filter];
 	}
 
 	getFeatures(section: string): FeatureInterface[] {
@@ -51,7 +49,7 @@ export class FeatureSystem {
 			return feature.sections.includes(section);
 		});
 
-		return filterFeatures(featuresForSection, this.filters.states);
+		return filterFeatures(featuresForSection, this.filters.state);
 	}
 }
 

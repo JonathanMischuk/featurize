@@ -17,7 +17,7 @@ export const filters = {
 		],
 		permissions: ['level1', 'level2', 'level3']
 	},
-	states: {
+	state: {
 		roles: ['Admin'],
 		permissions: ['level3']
 	}

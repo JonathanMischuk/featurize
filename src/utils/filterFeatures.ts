@@ -3,15 +3,15 @@ import { isTrue } from './isTrue';
 
 export const filterFeatures = (
 	features: FeatureInterface[],
-	states: { [key: string]: any }
+	state: { [key: string]: any }
 ): FeatureInterface[] => {
 	return features.filter((feature: any) => {
 		const result = Object.keys(feature.filters).map(filterName => {
-			const filterDefaultNames = Object.keys(states);
+			const filterDefaultNames = Object.keys(state);
 
 			return filterDefaultNames.includes(filterName)
 				? feature.filters[filterName]
-						.map((item: any) => states[filterName].includes(item))
+						.map((item: any) => state[filterName].includes(item))
 						.every(isTrue)
 				: true;
 		});
