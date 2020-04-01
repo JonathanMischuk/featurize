@@ -1,29 +1,44 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import Loadable from 'react-loadable';
 
+import { Loading } from '../Loading';
 import { emitter } from '../../emitter';
 import { FeatureSystemContext } from '../Context';
 
-const Loading = (props: any) => <div>Loading...</div>;
-
-export const useFeatures = (section: string) => {
+export const useFeatures = (section: string, props: any = {}) => {
 	const { instance } = useContext(FeatureSystemContext);
 	const { env } = instance;
 	const features = instance.getFeatures(section);
 	const [_, setTriggerRender] = useState(Date.now());
+	const emitterFn = () => setTriggerRender(Date.now);
 
-	const components = features.map((feature: any) => {
-		return Loadable({
-			loader: feature.component(feature.versions[env]),
-			loading: Loading
-		});
-	});
+	const components = features.map(
+		({ name, data, component, versions }: any) => {
+			return {
+				name,
+				data,
+				version: versions[env],
+				component: Loadable({
+					loader: component(versions[env]),
+					loading: Loading
+				})
+			};
+		}
+	);
 
-	emitter.on('update', () => {
-		setTriggerRender(Date.now);
-	});
+	useEffect(() => {
+		emitter.on('update', emitterFn);
 
-	return components.map((Component: any, i: number) => {
-		return <Component key={i} />;
+		return () => {
+			emitter.removeListener('update', emitterFn);
+		};
+	}, []);
+
+	return components.map(({ data, component, name, version }: any) => {
+		const Component = component;
+
+		return (
+			<Component key={name} version={version} data={data} {...props} />
+		);
 	});
 };

@@ -1,9 +1,10 @@
 export default {
+	name: 'Feature01',
+	component: (version?: string) => () => import(`./${version}`),
 	versions: {
 		dev: '1.0.0',
 		prod: '1.0.0'
 	},
-	component: (version?: string) => () => import(`./${version}`),
 	sections: ['flubber', 'anotherSection', 'hello'],
 	filters: {
 		roles: ['Admin'],

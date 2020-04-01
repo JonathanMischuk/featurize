@@ -8,7 +8,7 @@
 		"allowSyntheticDefaultImports": true,
 		"baseUrl": "./sandbox",
 		"lib": ["esnext", "dom"],
-		"types": ["node"],
+		"types": ["node", "jest"],
 		"moduleResolution": "node",
 		"strict": true,
 		"jsx": "react"

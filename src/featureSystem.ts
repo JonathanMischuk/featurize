@@ -7,7 +7,7 @@ import {
 import { filterFeatures } from './utils/filterFeatures';
 import { emitter } from './emitter';
 
-class FeatureSystem {
+export class FeatureSystem {
 	features: FeatureInterface[];
 	filters: FiltersInterface;
 	env: string;
@@ -18,11 +18,9 @@ class FeatureSystem {
 		env: string
 	) {
 		this.features = features;
-		this.filters = filters;
+		this.filters = JSON.parse(JSON.stringify(filters));
 		this.env = env;
 	}
-
-	init(filters: FiltersInterface) {}
 
 	setFilterState(filter: string, state: string): void {
 		this.filters.states[filter] = !this.filters.states[filter].includes(
