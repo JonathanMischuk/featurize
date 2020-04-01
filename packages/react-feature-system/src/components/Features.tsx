@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 
 import { createFeatureComponents, prepareFeatureComponents } from '../utils';
-import { emitter } from '../../emitter';
+import { emitter } from '../emitter';
 import { FeatureSystemContext } from './FeatureSystemContext';
 
 export default ({ section, ...props }: any) => {

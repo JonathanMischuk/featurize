@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 
 import { createFeatureComponents, prepareFeatureComponents } from '../utils';
-import { emitter } from '../../emitter';
+import { emitter } from '../emitter';
 import { FeatureSystemContext } from '../components';
 
 export const useFeatures = (section: string, props: any = {}) => {

@@ -1,0 +1,23 @@
+{
+	"name": "featurize",
+	"version": "0.1.0",
+	"private": true,
+	"description": "A tool to featurize UI components without spaghetti logic",
+	"main": "index.js",
+	"keywords": [
+		"feature",
+		"system",
+		"feature-system",
+		"react"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/JonathanMischuk/feature-system.git"
+	},
+	"author": "Jonathan Mischuk",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/JonathanMischuk/feature-system/issues"
+	},
+	"homepage": "https://github.com/JonathanMischuk/feature-system#readme"
+}

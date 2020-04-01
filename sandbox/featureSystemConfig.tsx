@@ -1,10 +1,10 @@
-import { featureSystem } from '../src/featureSystem';
+import { featurize } from '../packages/feature-system';
 import { features, filters } from './features';
 
 export const instance = async () => {
 	const env = 'dev';
 
-	return featureSystem({
+	return featurize({
 		features,
 		filters,
 		env

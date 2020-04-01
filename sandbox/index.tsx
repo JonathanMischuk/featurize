@@ -4,11 +4,12 @@ import { render } from 'react-dom';
 import {
 	useFeatures,
 	useRemoveFilterState,
-	useAddFilterState
-} from '../src/react/hooks';
+	useAddFilterState,
+	FeatureSystemProvider,
+	Features
+} from '../packages/react-feature-system';
 
 import { instance } from './featureSystemConfig';
-import { FeatureSystemProvider, Features } from '../src/react/components';
 
 const App = () => {
 	const features = useFeatures('hello', {

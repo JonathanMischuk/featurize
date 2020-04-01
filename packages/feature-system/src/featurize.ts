@@ -4,8 +4,7 @@ import {
 	FeatureInterface
 } from './interfaces';
 
-import { filterFeatures } from './utils/filterFeatures';
-import { emitter } from './emitter';
+import { filterFeatures } from './utils';
 
 export class FeatureSystem {
 	features: FeatureInterface[];
@@ -26,8 +25,6 @@ export class FeatureSystem {
 		this.filters.state[filter] = !this.filters.state[filter].includes(state)
 			? [...this.filters.state[filter], state]
 			: [...this.filters.state[filter]];
-
-		emitter.emit('update');
 	}
 
 	removeFilterState(filter: string, state: string): void {
@@ -36,8 +33,6 @@ export class FeatureSystem {
 				return filterItem !== state;
 			}
 		);
-
-		emitter.emit('update');
 	}
 
 	getFilterState(filter: string): string[] {
@@ -53,7 +48,7 @@ export class FeatureSystem {
 	}
 }
 
-export const featureSystem = ({
+export const featurize = ({
 	features,
 	filters,
 	env
