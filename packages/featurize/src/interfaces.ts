@@ -11,12 +11,22 @@ export interface FeatureInterface {
 	data?: { [key: string]: any };
 }
 
+export interface FeaturizeClassInterface {
+	features: FeatureInterface[];
+	filters: FiltersInterface;
+	env: string;
+	addFilterState: (filter: string, state: string) => void;
+	removeFilterState: (filter: string, state: string) => void;
+	getFilterState: (filter: string) => string[];
+	getFeatures: (section: string) => FeatureInterface[];
+}
+
 export interface FilterFeaturesInterface {
 	features: FeatureInterface[];
 	filters: FiltersInterface;
 }
 
-export interface FeatureSystemInterface {
+export interface FeaturizeInterface {
 	features: FeatureInterface[];
 	filters: FiltersInterface;
 	env: string;

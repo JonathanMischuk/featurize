@@ -1,4 +1,4 @@
-export { default as FeatureSystemContext } from './FeatureSystemContext';
+export { default as FeaturizeContext } from './FeaturizeContext';
 export { default as Features } from './Features';
-export { FeatureSystemProvider } from './FeatureSystemProvider';
+export { FeaturizeProvider } from './FeaturizeProvider';
 export { Loading } from './Loading';

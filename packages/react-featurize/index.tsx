@@ -1,3 +1,5 @@
+import './package.json';
+
 export {
 	useFeatures,
 	useAddFilterState,
@@ -6,8 +8,8 @@ export {
 } from './src/hooks';
 
 export {
-	FeatureSystemContext,
-	FeatureSystemProvider,
+	FeaturizeContext,
+	FeaturizeProvider,
 	Features,
 	Loading
 } from './src/components';

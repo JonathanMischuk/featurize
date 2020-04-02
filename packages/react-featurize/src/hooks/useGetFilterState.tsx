@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 
-import { FeatureSystemContext } from '../components';
+import { FeaturizeContext } from '../components';
 
 export const useGetFilterState = () => {
-	const { instance } = useContext(FeatureSystemContext);
+	const { instance } = useContext(FeaturizeContext);
 
 	return instance.getFilterState.bind(instance);
 };

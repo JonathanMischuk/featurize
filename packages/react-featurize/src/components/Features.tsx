@@ -2,10 +2,10 @@ import React, { useContext, useState, useEffect } from 'react';
 
 import { createFeatureComponents, prepareFeatureComponents } from '../utils';
 import { emitter } from '../emitter';
-import { FeatureSystemContext } from './FeatureSystemContext';
+import { FeaturizeContext } from './FeaturizeContext';
 
 export default ({ section, ...props }: any) => {
-	const { instance } = useContext(FeatureSystemContext);
+	const { instance } = useContext(FeaturizeContext);
 	const { env } = instance;
 	const features = instance.getFeatures(section);
 	const [_, setTriggerRender] = useState(Date.now());

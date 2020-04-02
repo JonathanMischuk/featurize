@@ -11,6 +11,7 @@
 	],
 	"scripts": {
 		"start": "webpack-dev-server --config webpack.config.js --hot --open",
+		"build": "tsc",
 		"unit-tests": "jest"
 	},
 	"repository": {
@@ -26,7 +27,7 @@
 	"devDependencies": {
 		"@types/events": "^3.0.0",
 		"@types/jest": "^25.1.4",
-		"@types/node": "^13.9.3",
+		"@types/node": "^13.9.8",
 		"@types/react": "^16.9.27",
 		"@types/react-dom": "^16.9.5",
 		"@types/react-loadable": "^5.5.3",

@@ -1,13 +1,9 @@
-import {
-	FeatureSystemContext,
-	FeatureSystemProvider,
-	Features
-} from './components';
+import { FeaturizeContext, FeaturizeProvider, Features } from './components';
 import * as _hooks from './hooks';
 
 export const components = {
-	FeatureSystemContext,
-	FeatureSystemProvider,
+	FeaturizeContext,
+	FeaturizeProvider,
 	Features
 };
 export const hooks = _hooks;

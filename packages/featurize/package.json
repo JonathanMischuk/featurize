@@ -1,10 +1,19 @@
 {
 	"name": "featurize",
-	"version": "0.1.2",
+	"version": "0.1.10",
 	"description": "A tool to featurize UI components without spaghetti logic",
-	"main": "index.js",
+	"main": "../../dist-featurize/index.js",
+	"types": "../../dist-featurize/index.d.ts",
+	"scripts": {
+		"build": "tsc --build --clean && tsc",
+		"test": "jest",
+		"preversion": "",
+		"postversion": "",
+		"postpublish": ""
+	},
 	"keywords": [
 		"feature",
+		"features",
 		"featurize",
 		"react",
 		"react-featurize"
@@ -20,6 +29,9 @@
 	},
 	"homepage": "https://github.com/JonathanMischuk/feature-system#readme",
 	"devDependencies": {
-		"@types/node": "^13.9.3"
+		"@types/node": "^13.9.8"
+	},
+	"dependencies": {
+		"typescript": "^3.8.3"
 	}
 }

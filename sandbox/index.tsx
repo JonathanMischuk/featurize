@@ -5,7 +5,7 @@ import {
 	useFeatures,
 	useRemoveFilterState,
 	useAddFilterState,
-	FeatureSystemProvider,
+	FeaturizeProvider,
 	Features
 } from '../packages/react-featurize';
 
@@ -41,8 +41,8 @@ const App = () => {
 };
 
 render(
-	<FeatureSystemProvider instance={instance}>
+	<FeaturizeProvider instance={instance}>
 		<App />
-	</FeatureSystemProvider>,
+	</FeaturizeProvider>,
 	document.getElementById('root')
 );

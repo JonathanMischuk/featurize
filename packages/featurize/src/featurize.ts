@@ -1,12 +1,13 @@
 import {
-	FeatureSystemInterface,
+	FeaturizeClassInterface,
+	FeaturizeInterface,
 	FiltersInterface,
 	FeatureInterface
 } from './interfaces';
 
 import { filterFeatures } from './utils';
 
-export class FeatureSystem {
+class Featurize implements FeaturizeClassInterface {
 	features: FeatureInterface[];
 	filters: FiltersInterface;
 	env: string;
@@ -48,10 +49,6 @@ export class FeatureSystem {
 	}
 }
 
-export const featurize = ({
-	features,
-	filters,
-	env
-}: FeatureSystemInterface) => {
-	return new FeatureSystem(features, filters, env);
+export const featurize = ({ features, filters, env }: FeaturizeInterface) => {
+	return new Featurize(features, filters, env);
 };

@@ -1,16 +1,18 @@
 {
 	"compilerOptions": {
-		"outDir": "./packages/featurize/dist",
-		"sourceMap": true,
+		"outDir": "../../dist-featurize",
 		"module": "esnext",
-		"target": "es6",
+		"target": "es5",
 		"allowJs": true,
 		"allowSyntheticDefaultImports": true,
-		"baseUrl": "./packages/featurize",
+		"baseUrl": ".",
 		"lib": ["esnext", "dom"],
 		"types": ["node", "jest"],
 		"moduleResolution": "node",
 		"strict": true,
-		"jsx": "react"
-	}
+		"esModuleInterop": true,
+		"declaration": true,
+		"resolveJsonModule": true
+	},
+	"exclude": ["node_modules"]
 }

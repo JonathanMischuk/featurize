@@ -1,4 +1,4 @@
-export interface FeatureSystemProviderInterface {
+export interface FeaturizeProviderInterface {
 	instance: any;
 	children: any;
 }

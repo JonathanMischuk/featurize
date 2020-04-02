@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 
-import { FeatureSystemProviderInterface } from '../interfaces';
-import { FeatureSystemContext } from './FeatureSystemContext';
+import { FeaturizeProviderInterface } from '../interfaces';
+import { FeaturizeContext } from './FeaturizeContext';
 
 const renderJSX = (instance: any, children: any) => {
 	const contextValue = { instance };
 
 	return (
-		<FeatureSystemContext.Provider value={contextValue}>
+		<FeaturizeContext.Provider value={contextValue}>
 			{children}
-		</FeatureSystemContext.Provider>
+		</FeaturizeContext.Provider>
 	);
 };
 
-export const FeatureSystemProvider = ({
+export const FeaturizeProvider = ({
 	instance,
 	children
-}: FeatureSystemProviderInterface) => {
+}: FeaturizeProviderInterface) => {
 	const [_instance, _setInstance] = useState(null);
 
 	if (typeof instance !== 'function') return renderJSX(instance, children);
