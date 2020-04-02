@@ -11,6 +11,7 @@ class Featurize implements FeaturizeClassInterface {
 	features: FeatureInterface[];
 	filters: FiltersInterface;
 	env: string;
+	state: string = 'featurize';
 
 	constructor(
 		features: FeatureInterface[],
@@ -20,6 +21,10 @@ class Featurize implements FeaturizeClassInterface {
 		this.features = features;
 		this.filters = JSON.parse(JSON.stringify(filters));
 		this.env = env;
+	}
+
+	setState(state: string): void {
+		this.state = state;
 	}
 
 	addFilterState(filter: string, state: string): void {
@@ -41,9 +46,13 @@ class Featurize implements FeaturizeClassInterface {
 	}
 
 	getFeatures(section: string): FeatureInterface[] {
-		const featuresForSection = this.features.filter(feature => {
-			return feature.sections.includes(section);
-		});
+		const featuresForSection = this.features
+			.filter(feature => {
+				return feature.sections.includes(section);
+			})
+			.filter(feature => {
+				return feature.states.includes(this.state);
+			});
 
 		return filterFeatures(featuresForSection, this.filters.state);
 	}
