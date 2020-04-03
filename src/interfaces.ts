@@ -4,7 +4,7 @@ export interface FiltersInterface {
 }
 
 export interface FeatureInterface {
-	component: () => any;
+	component?: () => any;
 	versions: { [key: string]: string };
 	states: string[];
 	sections: string[];
