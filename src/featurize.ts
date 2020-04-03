@@ -45,6 +45,10 @@ class Featurize implements FeaturizeClassInterface {
 		return this.filters.state[filter];
 	}
 
+	hasFilterState(filter: string, state: string): boolean {
+		return this.filters.state[filter].includes(state);
+	}
+
 	getFeatures(section: string): FeatureInterface[] {
 		const featuresForSection = this.features
 			.filter(feature => {

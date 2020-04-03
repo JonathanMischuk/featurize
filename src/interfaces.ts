@@ -17,10 +17,12 @@ export interface FeaturizeClassInterface {
 	filters: FiltersInterface;
 	env: string;
 	state: string;
+	setState: (state: string) => void;
 	addFilterState: (filter: string, state: string) => void;
 	removeFilterState: (filter: string, state: string) => void;
 	getFilterState: (filter: string) => string[];
 	getFeatures: (section: string) => FeatureInterface[];
+	hasFilterState: (filter: string, state: string) => boolean;
 }
 
 export interface FilterFeaturesInterface {
