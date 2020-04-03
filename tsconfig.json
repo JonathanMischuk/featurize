@@ -1,12 +1,12 @@
 {
 	"compilerOptions": {
-		"outDir": "__SOMETHING/packages/featurize/dist
+		"outDir": "./dist",
 		"module": "esnext",
 		"target": "es5",
 		"allowJs": true,
 		"allowSyntheticDefaultImports": true,
 		"baseUrl": ".",
-		"lib": ["esn__SOMETHING/packages/featurize
+		"lib": ["esnext", "dom"],
 		"types": ["node", "jest"],
 		"moduleResolution": "node",
 		"strict": true,
@@ -14,5 +14,5 @@
 		"declaration": true,
 		"resolveJsonModule": true
 	},
-	"exclude": ["node_modules"]
+	"include": ["package.json", "index.ts", "src/**/*"]
 }
