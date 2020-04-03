@@ -5,10 +5,14 @@
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"scripts": {
-		"build": "tsc --build --clean && tsc",
+		"compile": "tsc --build --clean && tsc",
+		"copy-win": "xcopy README.md dist",
+		"copy-lin": "cp README.md dist",
+		"build-win": "npm run compile && npm run copy-win",
+		"build-lin": "npm run compile && npm run copy-lin",
 		"test": "jest",
 		"preversion": "",
-		"postversion": "",
+		"postversion": "npm run build-win",
 		"postpublish": ""
 	},
 	"keywords": [
@@ -30,7 +34,9 @@
 	"homepage": "https://github.com/JonathanMischuk/featurize#readme",
 	"devDependencies": {
 		"@types/jest": "^25.1.5",
-		"jest": "^25.2.6"
+		"awesome-typescript-loader": "^5.2.1",
+		"jest": "^25.2.6",
+		"typescript": "^3.8.3"
 	},
 	"peerDependencies": {
 		"@types/node": "^13.11.0",

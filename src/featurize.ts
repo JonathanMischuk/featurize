@@ -28,7 +28,7 @@ class Featurize implements FeaturizeClassInterface {
 	}
 
 	addFilterState(filter: string, state: string): void {
-		this.filters.state[filter] = !this.filters.state[filter].includes(state)
+		this.filters.state[filter] = !this.hasFilterState(filter, state)
 			? [...this.filters.state[filter], state]
 			: [...this.filters.state[filter]];
 	}
