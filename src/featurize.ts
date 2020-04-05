@@ -28,12 +28,18 @@ class Featurize implements FeaturizeClassInterface {
 	}
 
 	addFilterState(filter: string, state: string): void {
+		if (!this.hasFilter(filter))
+			throw Featurize.errorFilterDoesNotExist(filter);
+
 		this.filters.state[filter] = !this.hasFilterState(filter, state)
 			? [...this.filters.state[filter], state]
 			: [...this.filters.state[filter]];
 	}
 
 	removeFilterState(filter: string, state: string): void {
+		if (!this.hasFilter(filter))
+			throw Featurize.errorFilterDoesNotExist(filter);
+
 		this.filters.state[filter] = this.filters.state[filter].filter(
 			(filterItem: any) => {
 				return filterItem !== state;
@@ -42,7 +48,14 @@ class Featurize implements FeaturizeClassInterface {
 	}
 
 	getFilterState(filter: string): string[] {
+		if (!this.hasFilter(filter))
+			throw Featurize.errorFilterDoesNotExist(filter);
+
 		return this.filters.state[filter];
+	}
+
+	hasFilter(filter: string): boolean {
+		return this.filters.state.hasOwnProperty(filter);
 	}
 
 	hasFilterState(filter: string, state: string): boolean {
@@ -59,8 +72,18 @@ class Featurize implements FeaturizeClassInterface {
 
 		return filterFeatures(featuresForSection, this.filters.state);
 	}
+
+	static errorFilterDoesNotExist(filter: string): Error {
+		return new Error(`${filter} filter does not exist.`);
+	}
 }
 
 export const featurize = ({ features, filters, env }: FeaturizeInterface) => {
-	return new Featurize(features, filters, env);
+	const instance = new Featurize(features, filters, env);
+	Object.defineProperty(instance, 'Featurize', {
+		writable: false,
+		configurable: false,
+		value: Featurize
+	});
+	return instance;
 };

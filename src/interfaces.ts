@@ -23,6 +23,7 @@ export interface FeaturizeClassInterface {
 	getFilterState: (filter: string) => string[];
 	getFeatures: (section: string) => FeatureInterface[];
 	hasFilterState: (filter: string, state: string) => boolean;
+	hasFilter: (filter: string) => boolean;
 }
 
 export interface FilterFeaturesInterface {

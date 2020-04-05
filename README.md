@@ -34,7 +34,7 @@ const instance = featurize({
 
 ## `feature` object:
 
-This is a barebones feature object. There will be an explanation for each property below.
+A barebones feature object contains a few properties:
 
 ```javascript
 const feature = {
