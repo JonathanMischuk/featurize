@@ -6,13 +6,13 @@
 	"types": "./dist/index.d.ts",
 	"scripts": {
 		"compile": "tsc --build --clean && tsc",
-		"copy-win": "xcopy README.md dist",
-		"copy-lin": "cp README.md dist",
-		"build-win": "npm run compile && npm run copy-win",
-		"build-lin": "npm run compile && npm run copy-lin",
+		"copy:win": "xcopy README.md dist",
+		"copy:lin": "cp README.md dist",
+		"build:win": "npm run compile && npm run copy:win",
+		"build:lin": "npm run compile && npm run copy:lin",
 		"test": "jest",
 		"preversion": "",
-		"postversion": "npm run build-win",
+		"postversion": "npm run build:win",
 		"postpublish": ""
 	},
 	"keywords": [
